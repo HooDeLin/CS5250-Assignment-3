@@ -1,0 +1,7 @@
+modules.order
+Module.symvers
+device.mod.c
+.tmp_versions
+*.ko
+*.o
+*.cmd
