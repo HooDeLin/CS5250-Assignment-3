@@ -33,6 +33,12 @@ int onebyte_release(struct inode *inode, struct file *filep)
 ssize_t onebyte_read(struct file *filep, char *buf, size_t count, loff_t *f_pos)
 {
   /*please complete the function on your own*/
+  if (*buf != 0) { // The buffer is non zero once it has read a byte, so we stop it from reading
+    return 0;
+  }
+  put_user(*onebyte_data, buf);
+  // We only read one byte, so we just return 1
+  return 1;
 }
 ssize_t onebyte_write(struct file *filep, const char *buf, size_t couunt, loff_t *f_pos)
 {
